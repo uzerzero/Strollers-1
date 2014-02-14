@@ -14,6 +14,12 @@ public class Triangle implements Observer {
 
     private Image _image;
 
+    public Triangle(int posX, int posY, Image image) {
+        _posX = posX;
+        _posY = posY;
+        _image = image;
+    }
+
 
     public int get_posX() {
         return _posX;
