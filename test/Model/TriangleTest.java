@@ -1,4 +1,4 @@
-package Model;
+package model;
 
 import junit.framework.Assert;
 import org.junit.Test;
@@ -40,7 +40,7 @@ public class TriangleTest {
             }
         };
 
-        Triangle triangle = new Triangle(2,3, image);
+        Triangle triangle = new Triangle(2,3);
         Assert.assertEquals(2, triangle.get_posX());
     }
 
@@ -73,7 +73,7 @@ public class TriangleTest {
             }
         };
 
-        Triangle triangle = new Triangle(2,3, image);
+        Triangle triangle = new Triangle(2,3);
         triangle.set_posX(8);
         Assert.assertEquals(8, triangle.get_posX());
     }
@@ -107,7 +107,7 @@ public class TriangleTest {
             }
         };
 
-        Triangle triangle = new Triangle(2,3, image);
+        Triangle triangle = new Triangle(2,3);
         Assert.assertEquals(3, triangle.get_posY());
     }
 
@@ -140,20 +140,12 @@ public class TriangleTest {
             }
         };
 
-        Triangle triangle = new Triangle(2,3, image);
+        Triangle triangle = new Triangle(2,3);
         triangle.set_posY(42);
         Assert.assertEquals(42, triangle.get_posY());
     }
 
-    @Test
-    public void testGet_image() throws Exception {
 
-    }
-
-    @Test
-    public void testSet_image() throws Exception {
-
-    }
 
     @Test
     public void testUpdate() throws Exception {

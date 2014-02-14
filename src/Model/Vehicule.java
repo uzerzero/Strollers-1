@@ -22,31 +22,8 @@ public class Vehicule extends Observable {
 
     public void setPosition(Vec2d position2D) {
         this._position2D = position2D;
+        setChanged();
         notifyObservers(position2D);
-    }
-
-    public int get_speedKmPerHour() {
-        return _speedKmPerHour;
-    }
-
-    public void set_speedKmPerHour(int _speedKmPerHour) {
-        this._speedKmPerHour = _speedKmPerHour;
-    }
-
-    public void move(){
-
-    }
-
-    public void turn(){
-
-    }
-
-    public void speedUp(){
-        set_speedKmPerHour(_speedKmPerHour + 5);
-    }
-
-    public void stop(){
-        set_speedKmPerHour(0);
     }
 
     @Override
