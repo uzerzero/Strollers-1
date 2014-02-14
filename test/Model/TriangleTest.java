@@ -1,5 +1,6 @@
-package Model;
+package model;
 
+import com.sun.javafx.geom.Vec2d;
 import junit.framework.Assert;
 import org.junit.Test;
 
@@ -21,7 +22,7 @@ public class TriangleTest {
 
             @Override
             public int getHeight(ImageObserver observer) {
-                return 0;
+                return 1;
             }
 
             @Override
@@ -157,6 +158,37 @@ public class TriangleTest {
 
     @Test
     public void testUpdate() throws Exception {
+        Image image = new Image() {
+            @Override
+            public int getWidth(ImageObserver observer) {
+                return 0;
+            }
 
+            @Override
+            public int getHeight(ImageObserver observer) {
+                return 0;
+            }
+
+            @Override
+            public ImageProducer getSource() {
+                return null;
+            }
+
+            @Override
+            public Graphics getGraphics() {
+                return null;
+            }
+
+            @Override
+            public Object getProperty(String name, ImageObserver observer) {
+                return null;
+            }
+        };
+        Triangle triangle = new Triangle(2,3,image);
+        Vec2d vector = new Vec2d(0,10);
+        Vehicule vehi = new Vehicule(vector);
+        vehi.addObserver(triangle);
+        Vec2d vector2 = new Vec2d(10,0);
+        vehi.setPosition(vector2);
     }
 }

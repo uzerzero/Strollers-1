@@ -22,6 +22,7 @@ public class Vehicule extends Observable {
 
     public void setPosition(Vec2d position2D) {
         this._position2D = position2D;
+        setChanged();
         notifyObservers(position2D);
     }
 
