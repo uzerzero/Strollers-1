@@ -1,35 +1,36 @@
 package model;
 
 import com.sun.javafx.geom.Vec2d;
-import org.junit;
-import java.util.Vector;
+
+import java.util.Observable;
 
 /**
  * Created by Sarah on 31/01/14.
  */
-public class Vehicule {
+public class Vehicule extends Observable {
 
-    private Vec2d position2D;
-    private int speedKmPerHour;
+    private Vec2d _position2D;
+    private int _speedKmPerHour;
 
-    public Vehicule(Vec2d position) {
-        this.position2D = position2D;
+    public Vehicule(Vec2d _position2D) {
+        this._position2D = _position2D;
     }
 
     public Vec2d getPosition() {
-        return position2D;
+        return _position2D;
     }
 
     public void setPosition(Vec2d position2D) {
-        this.position2D = position2D;
+        this._position2D = position2D;
+        notifyObservers(position2D);
     }
 
-    public int getSpeedKmPerHour() {
-        return speedKmPerHour;
+    public int get_speedKmPerHour() {
+        return _speedKmPerHour;
     }
 
-    public void setSpeedKmPerHour(int speedKmPerHour) {
-        this.speedKmPerHour = speedKmPerHour;
+    public void set_speedKmPerHour(int _speedKmPerHour) {
+        this._speedKmPerHour = _speedKmPerHour;
     }
 
     public void move(){
@@ -41,18 +42,19 @@ public class Vehicule {
     }
 
     public void speedUp(){
-        setSpeedKmPerHour(speedKmPerHour + 5);
+        set_speedKmPerHour(_speedKmPerHour + 5);
     }
 
     public void stop(){
-        setSpeedKmPerHour(0);
+        set_speedKmPerHour(0);
     }
 
     @Override
     public String toString() {
         return "Vehicule{" +
-                "position2D=" + position2D +
-                ", speedKmPerHour=" + speedKmPerHour +
+                "_position2D=" + _position2D +
+                ", _speedKmPerHour=" + _speedKmPerHour +
                 '}';
     }
+
 }
