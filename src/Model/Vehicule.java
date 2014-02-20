@@ -1,7 +1,5 @@
 package model;
 
-import com.sun.javafx.geom.Vec2d;
-
 import java.util.Observable;
 
 /**
@@ -9,29 +7,41 @@ import java.util.Observable;
  */
 public class Vehicule extends Observable {
 
-    private Vec2d _position2D;
-    private int _speedKmPerHour;
+    private int _posX;
+    private int _posY;
 
-    public Vehicule(Vec2d _position2D) {
-        this._position2D = _position2D;
+    public Vehicule(int posX, int posY)
+    {
+        _posX = posX;
+        _posY = posY;
     }
 
-    public Vec2d getPosition() {
-        return _position2D;
+    public int get_posY() {
+        return _posY;
     }
 
-    public void setPosition(Vec2d position2D) {
-        this._position2D = position2D;
+    public void set_posY(int posY) {
+        this._posY = posY;
+    }
+
+    public int get_posX() {
+        return _posX;
+    }
+
+    public void update(float elapsed) {
+        _posX+=10;
         setChanged();
-        notifyObservers(position2D);
+        notifyObservers();
+    }
+
+    public void set_posX(int posX) {
+        this._posX = posX;
     }
 
     @Override
     public String toString() {
         return "Vehicule{" +
-                "_position2D=" + _position2D +
-                ", _speedKmPerHour=" + _speedKmPerHour +
-                '}';
+                "_position2D=" + _posX + ", "+_posY+'}';
     }
 
 }

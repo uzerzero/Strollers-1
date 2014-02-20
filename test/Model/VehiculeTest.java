@@ -1,15 +1,14 @@
 package model;
 
 import com.sun.javafx.geom.Vec2d;
-import org.junit.Before;
-import org.junit.Test;
 
 /**
  * Created by clodagh on 14/02/14.
  */
 public class VehiculeTest {
     Vec2d myPos;
-    Vehicule voiture;
+    Vehicule voiture;/*
+
     @Before
     public void setUp() throws Exception {
         myPos = new Vec2d(0,0);
@@ -28,5 +27,5 @@ public class VehiculeTest {
         voiture.setPosition(newPos);
         assert voiture.getPosition()==newPos;
     }
-
+*/
 }
