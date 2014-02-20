@@ -8,6 +8,7 @@ import java.util.Observer;
 /**
  * Created by Hakkragor on 14/02/14.
  */
+ //Commit test
 public class Triangle implements Observer {
     private int _posX;
     private int _posY;
