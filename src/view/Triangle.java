@@ -45,7 +45,6 @@ public class Triangle implements Observer{
 
     @Override
     public void update(Observable o, Object arg) {
-        System.out.println("Changes done: "+get_posX()+", " +get_posY());
         this.set_posY(_voiture.get_posY());
         this.set_posX(_voiture.get_posX());
         this._myCanvas.draw();

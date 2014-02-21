@@ -1,13 +1,11 @@
 package model;
 
-import com.sun.javafx.geom.Vec2d;
-
 /**
  * Created by clodagh on 14/02/14.
  */
 public class VehiculeTest {
-    Vec2d myPos;
-    Vehicule voiture;/*
+    /*Vec2d myPos;
+    Vehicule voiture;
 
     @Before
     public void setUp() throws Exception {

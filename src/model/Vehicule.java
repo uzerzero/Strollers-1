@@ -7,13 +7,15 @@ import java.util.Observable;
  */
 public class Vehicule extends Observable {
 
-    private int _posX;
-    private int _posY;
+    private int _posX, _posY;
+    private int _velocityX, _velocityY;
 
     public Vehicule(int posX, int posY)
     {
         _posX = posX;
         _posY = posY;
+
+        _velocityX = _velocityY = 0;
     }
 
     public int get_posY() {
@@ -22,6 +24,9 @@ public class Vehicule extends Observable {
 
     public void set_posY(int posY) {
         this._posY = posY;
+
+        setChanged();
+        notifyObservers();
     }
 
     public int get_posX() {
@@ -34,8 +39,19 @@ public class Vehicule extends Observable {
         notifyObservers();
     }
 
+    public void move(int x, int y) {
+        this._posX += x;
+        this._posY += y;
+
+        setChanged();
+        notifyObservers();
+    }
+
     public void set_posX(int posX) {
         this._posX = posX;
+
+        setChanged();
+        notifyObservers();
     }
 
     @Override
