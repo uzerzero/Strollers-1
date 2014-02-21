@@ -9,8 +9,8 @@ import java.util.Observer;
  * Created by Hakkragor on 14/02/14.
  */
 public class Triangle implements Observer{
-    private int _posX;
-    private int _posY;
+    private float _posX;
+    private float _posY;
     private MyCanvas _myCanvas;
     private Vehicule _voiture;
 
@@ -27,19 +27,19 @@ public class Triangle implements Observer{
         _posY = posY;
     }
 
-    public int get_posX() {
+    public float get_posX() {
         return _posX;
     }
 
-    public void set_posX(int _posX) {
+    public void set_posX(float _posX) {
         this._posX = _posX;
     }
 
-    public int get_posY() {
+    public float get_posY() {
         return _posY;
     }
 
-    public void set_posY(int _posY) {
+    public void set_posY(float _posY) {
         this._posY = _posY;
     }
 

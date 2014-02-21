@@ -7,36 +7,73 @@ import java.util.Observable;
  */
 public class Vehicule extends Observable {
 
-    private int _posX, _posY;
-    private int _velocityX, _velocityY;
+    private float _posX, _posY;
+    private float _speed, _angle;
+    private Domain _domain;
 
-    public Vehicule(int posX, int posY)
+    public Vehicule(Domain domain, float posX, float posY)
     {
         _posX = posX;
         _posY = posY;
 
-        _velocityX = _velocityY = 0;
+        _speed = 0;
+        _angle = 0;
+        _domain = domain;
     }
 
-    public int get_posY() {
+    public float get_posY() {
         return _posY;
     }
 
-    public void set_posY(int posY) {
+    public void set_posY(float posY) {
         this._posY = posY;
 
         setChanged();
         notifyObservers();
     }
 
-    public int get_posX() {
+    public float get_posX() {
         return _posX;
     }
 
     public void update(float elapsed) {
-        _posX+=10;
+        _posX += _speed * Math.cos(_angle);
+        _posY += _speed * Math.sin(_angle);
+
+        if (_domain.isOutOfDomain(this)) {
+            stop();
+            _domain.replaceVehiculeInside(this);
+        }
+
         setChanged();
         notifyObservers();
+    }
+
+    public void accelerate() {
+        float acc = 1;
+
+        _speed += acc;
+        if (_speed > 4)
+            _speed = 4;
+    }
+
+    public void decelerate() {
+        float acc = 1;
+
+        _speed -= acc;
+        if (_speed < 0)
+            _speed = 0;
+    }
+
+    public void stop() {
+        _speed = 0;
+    }
+
+    public void turn(boolean left) {
+        if (!left)
+            _angle += .2f;
+        else
+            _angle -= .2f;
     }
 
     public void move(int x, int y) {
@@ -47,7 +84,7 @@ public class Vehicule extends Observable {
         notifyObservers();
     }
 
-    public void set_posX(int posX) {
+    public void set_posX(float posX) {
         this._posX = posX;
 
         setChanged();

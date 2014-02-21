@@ -31,7 +31,7 @@ class MyCanvas extends JPanel {
         Graphics2D g2d = (Graphics2D) g;
         g2d.setColor(Color.blue);
         for (Triangle t : _drawableObjects) {
-            g2d.fillOval(t.get_posX(), t.get_posY(), 5, 5);
+            g2d.fillOval((int)t.get_posX(), (int)t.get_posY(), 5, 5);
         }
     }
 

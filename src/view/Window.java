@@ -1,5 +1,6 @@
 package view;
 
+import model.Domain;
 import model.Temps;
 import model.Vehicule;
 
@@ -24,11 +25,13 @@ public class Window extends JFrame implements KeyListener {
     }
 
     public void init() {
-        voiture = new Vehicule(10,10);
+        Domain domain = new Domain(0, 0, 1000, 730);
+
+        voiture = new Vehicule(domain, 10,10);
         MyCanvas canvas = new MyCanvas();
         Triangle triangle = new Triangle(voiture, canvas);
 
-        setSize(300, 300);
+        setSize(1024, 768);
         setTitle("PLOPS");
         setLayout(new BorderLayout());
         add(canvas, BorderLayout.CENTER);
@@ -42,8 +45,8 @@ public class Window extends JFrame implements KeyListener {
             } //windowClosing
         } );
 
-        //java.util.Timer timer = new java.util.Timer();
-        //timer.scheduleAtFixedRate(new Temps(voiture), 0, 1000);
+        java.util.Timer timer = new java.util.Timer();
+        timer.scheduleAtFixedRate(new Temps(voiture), 0, 16);
     }
 
     @Override
@@ -55,16 +58,16 @@ public class Window extends JFrame implements KeyListener {
     public void keyPressed(KeyEvent keyEvent) {
         switch (keyEvent.getKeyCode()) {
             case KeyEvent.VK_RIGHT:
-                voiture.move(10, 0);
+                voiture.turn(false);
                 break;
             case KeyEvent.VK_LEFT:
-                voiture.move(-10, 0);
+                voiture.turn(true);
                 break;
             case KeyEvent.VK_UP:
-                voiture.move(0, -10);
+                voiture.accelerate();
                 break;
             case KeyEvent.VK_DOWN:
-                voiture.move(0, 10);
+                voiture.decelerate();
                 break;
         }
     }
