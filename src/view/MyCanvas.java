@@ -30,7 +30,7 @@ class MyCanvas extends JPanel {
     private void doDrawing(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
         for (DrawableObject d : _drawableObjects) {
-            d.Draw(g2d);
+            d.draw(g2d);
         }
     }
 

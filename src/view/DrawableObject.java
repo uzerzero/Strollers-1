@@ -7,5 +7,5 @@ import java.awt.*;
  */
 public interface DrawableObject {
 
-    public void Draw(Graphics2D g2d);
+    public void draw(Graphics2D g2d);
 }

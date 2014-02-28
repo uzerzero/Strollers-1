@@ -12,6 +12,7 @@ import java.util.Observer;
 public class Triangle implements Observer, DrawableObject{
     private float _posX;
     private float _posY;
+    private Image image;
     private MyCanvas _myCanvas;
     private Vehicule _voiture;
 
@@ -53,7 +54,7 @@ public class Triangle implements Observer, DrawableObject{
     }
 
     @Override
-    public void Draw(Graphics2D g2d) {
+    public void draw(Graphics2D g2d) {
         g2d.setColor(Color.pink);
         g2d.fillOval((int)get_posX(), (int)get_posY(), 5, 5);
     }
