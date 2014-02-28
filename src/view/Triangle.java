@@ -2,13 +2,14 @@ package view;
 
 import model.Vehicule;
 
+import java.awt.*;
 import java.util.Observable;
 import java.util.Observer;
 
 /**
  * Created by Hakkragor on 14/02/14.
  */
-public class Triangle implements Observer{
+public class Triangle implements Observer, DrawableObject{
     private float _posX;
     private float _posY;
     private MyCanvas _myCanvas;
@@ -49,5 +50,11 @@ public class Triangle implements Observer{
         this.set_posX(_voiture.get_posX());
         this._myCanvas.draw();
 
+    }
+
+    @Override
+    public void Draw(Graphics2D g2d) {
+        g2d.setColor(Color.pink);
+        g2d.fillOval((int)get_posX(), (int)get_posY(), 5, 5);
     }
 }

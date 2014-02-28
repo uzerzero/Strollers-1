@@ -10,10 +10,10 @@ import java.util.ArrayList;
  * Created by clodagh on 15/02/14.
  */
 class MyCanvas extends JPanel {
-    ArrayList<Triangle> _drawableObjects;
+    ArrayList<DrawableObject> _drawableObjects;
 
     public MyCanvas () {
-        _drawableObjects = new ArrayList<Triangle>();
+        _drawableObjects = new ArrayList<DrawableObject>();
 
     }
 
@@ -29,9 +29,8 @@ class MyCanvas extends JPanel {
 
     private void doDrawing(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
-        g2d.setColor(Color.blue);
-        for (Triangle t : _drawableObjects) {
-            g2d.fillOval((int)t.get_posX(), (int)t.get_posY(), 5, 5);
+        for (DrawableObject d : _drawableObjects) {
+            d.Draw(g2d);
         }
     }
 
