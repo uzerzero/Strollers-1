@@ -46,7 +46,7 @@ public class Window extends JFrame implements KeyListener {
         } );
 
         java.util.Timer timer = new java.util.Timer();
-        timer.scheduleAtFixedRate(new Temps(voiture), 0, 16);
+        timer.scheduleAtFixedRate(new Temps(voiture), 0, 10);
     }
 
     @Override
