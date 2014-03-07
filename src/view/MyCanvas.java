@@ -23,7 +23,7 @@ class MyCanvas extends JPanel {
         doDrawing(g);
     }
 
-    public void attachObject(Triangle object) {
+    public void attachObject(DrawableObject object) {
         _drawableObjects.add(object);
     }
 

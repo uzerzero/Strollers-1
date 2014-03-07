@@ -1,5 +1,6 @@
 package view;
 
+import model.Building;
 import model.Domain;
 import model.Temps;
 import model.Vehicule;
@@ -29,6 +30,9 @@ public class Window extends JFrame implements KeyListener {
         MyCanvas canvas = new MyCanvas();
         Triangle triangle = new Triangle(voiture, canvas);
         String direction = "Ma direction";
+
+        Building building = new Building(250, 250, 100, 100);
+        Carre carre = new Carre(building, canvas);
 
         setSize(1024, 768);
         setTitle("PLOPS");
