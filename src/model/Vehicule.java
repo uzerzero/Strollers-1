@@ -8,6 +8,7 @@ import java.util.Observable;
 public class Vehicule extends Observable {
 
     private float _posX, _posY;
+    private float _width, _height;
     private float _speed, _angle;
     private Domain _domain;
 
@@ -35,6 +36,14 @@ public class Vehicule extends Observable {
     public float get_posX() {
         return _posX;
     }
+
+    public float get_width() { return _width; }
+
+    public void set_width(float width) { _width = width; }
+
+    public float get_height() { return _height; }
+
+    public void set_height(float height) { _height = height; };
 
     public void update(float elapsed) {
         _posX += _speed * Math.cos(_angle);
