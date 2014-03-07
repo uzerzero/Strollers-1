@@ -45,6 +45,10 @@ public class Vehicule extends Observable {
             _domain.replaceVehiculeInside(this);
         }
 
+        if (_domain.isCollisionWithBuildings(this)) {
+            stop();
+        }
+
         setChanged();
         notifyObservers();
     }
