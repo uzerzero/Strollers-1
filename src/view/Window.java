@@ -28,10 +28,12 @@ public class Window extends JFrame implements KeyListener {
         voiture = new Vehicule(domain, 10,10);
         MyCanvas canvas = new MyCanvas();
         Triangle triangle = new Triangle(voiture, canvas);
+        String direction = "Ma direction";
 
         setSize(1024, 768);
         setTitle("PLOPS");
         setLayout(new BorderLayout());
+
         add(canvas, BorderLayout.CENTER);
         setVisible(true);
 
@@ -55,22 +57,29 @@ public class Window extends JFrame implements KeyListener {
     public void keyPressed(KeyEvent keyEvent) {
         switch (keyEvent.getKeyCode()) {
             case KeyEvent.VK_RIGHT:
-                voiture.turn(false);
+                voiture.turnRight();
                 break;
             case KeyEvent.VK_LEFT:
-                voiture.turn(true);
+                voiture.turnLeft();
                 break;
             case KeyEvent.VK_UP:
                 voiture.accelerate();
                 break;
             case KeyEvent.VK_DOWN:
-                voiture.decelerate();
+                voiture.backUp();
                 break;
         }
     }
 
     @Override
     public void keyReleased(KeyEvent keyEvent) {
-
+        switch (keyEvent.getKeyCode()) {
+            case KeyEvent.VK_UP:
+                voiture.decelerate();
+                break;
+            case KeyEvent.VK_DOWN:
+                voiture.decelerate();
+                break;
+        }
     }
 }

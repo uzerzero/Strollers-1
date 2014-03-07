@@ -51,10 +51,7 @@ public class Vehicule extends Observable {
 
     public void accelerate() {
         float acc = 1;
-
         _speed += acc;
-        if (_speed > 4)
-            _speed = 4;
     }
 
     public void decelerate() {
@@ -69,11 +66,24 @@ public class Vehicule extends Observable {
         _speed = 0;
     }
 
+    public void backUp(){
+        float acc = 1;
+        _speed -= acc;
+    }
+
     public void turn(boolean left) {
         if (!left)
             _angle += .2f;
         else
             _angle -= .2f;
+    }
+
+    public void turnLeft(){
+        _angle += .2f;
+    }
+
+    public void turnRight(){
+        _angle -= .2f;
     }
 
     public void move(int x, int y) {
