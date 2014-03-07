@@ -34,6 +34,9 @@ public class Window extends JFrame implements KeyListener {
         Building building = new Building(250, 250, 100, 100);
         Carre carre = new Carre(building, canvas);
 
+        Building building2 = new Building(650, 250, 100, 100);
+        Carre carre2 = new Carre(building2, canvas);
+
         setSize(1024, 768);
         setTitle("PLOPS");
         setLayout(new BorderLayout());

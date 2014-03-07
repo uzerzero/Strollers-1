@@ -73,17 +73,19 @@ public class Vehicule extends Observable {
 
     public void turn(boolean left) {
         if (!left)
-            _angle += .2f;
+            _angle += .1f;
         else
-            _angle -= .2f;
+            _angle -= .1f;
     }
 
     public void turnLeft(){
-        _angle += .2f;
+        _angle += .1f;
+        System.out.println(_angle);
     }
 
     public void turnRight(){
-        _angle -= .2f;
+        _angle -= .1f;
+        System.out.println(_angle);
     }
 
     public void move(int x, int y) {
