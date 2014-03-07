@@ -83,12 +83,12 @@ public class Vehicule extends Observable {
     }
 
     public void turnLeft(){
-        _angle += .1f;
+        _angle -= .1f;
         System.out.println(_angle);
     }
 
     public void turnRight(){
-        _angle -= .1f;
+        _angle += .1f;
         System.out.println(_angle);
     }
 
