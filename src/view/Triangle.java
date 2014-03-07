@@ -26,7 +26,7 @@ public class Triangle implements Observer, DrawableObject{
         _posX = voiture.get_posX();
         _posY = voiture.get_posY();
         try {
-            this.image = ImageIO.read(new File("C:\\Users\\Sarah\\workspaceIJ\\Strollers-1\\src\\img\\vehicule.jpg"));
+            this.image = ImageIO.read(new File("/home/cactus/IdeaProjects/Strollers-1/src/img/vehicule.jpg"));
         } catch (IOException e) {
             e.printStackTrace();
         }
