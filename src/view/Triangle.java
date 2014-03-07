@@ -2,7 +2,13 @@ package view;
 
 import model.Vehicule;
 
+import javax.imageio.ImageIO;
+import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.awt.image.ImageObserver;
+import java.io.File;
+import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -12,13 +18,18 @@ import java.util.Observer;
 public class Triangle implements Observer, DrawableObject{
     private float _posX;
     private float _posY;
-    private Image image;
+    private BufferedImage image;
     private MyCanvas _myCanvas;
     private Vehicule _voiture;
 
     public Triangle(Vehicule voiture, MyCanvas myCanvas){
         _posX = voiture.get_posX();
         _posY = voiture.get_posY();
+        try {
+            this.image = ImageIO.read(new File("C:\\Users\\Sarah\\workspaceIJ\\Strollers-1\\src\\img\\vehicule.jpg"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         _voiture = voiture;
         _myCanvas = myCanvas;
         _myCanvas.attachObject(this);
@@ -56,6 +67,6 @@ public class Triangle implements Observer, DrawableObject{
     @Override
     public void draw(Graphics2D g2d) {
         g2d.setColor(Color.pink);
-        g2d.fillOval((int)get_posX(), (int)get_posY(), 5, 5);
+        g2d.drawImage(this.image, null, (int)this._posX, (int)this._posY);
     }
 }
